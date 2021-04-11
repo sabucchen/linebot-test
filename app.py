@@ -22,7 +22,11 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     mtext = event.message.text
-    if mtext == '@按鈕樣板':
+    
+    if mtext == '我想訂月餅':
+        bookmooncake(event)
+
+    elif mtext == '@按鈕樣板':
         sendButton(event)
 
     elif mtext == '@確認樣板':
@@ -195,6 +199,25 @@ def sendYes(event):
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
+def bookmooncake(event):
+    try:
+        message = [  #串列
+            StickerSendMessage(  #傳送貼圖
+                    package_id='8522',  
+                    sticker_id='16581266'
+                ),
+                TextSendMessage(  #傳送文字
+                    text = "好的，沒問題。\n 想吃葷的還素的呢？"
+                ),
+                ImageSendMessage(  #傳送圖片
+                    original_content_url = "https://i.imgur.com/4QfKuz1.png",
+                    preview_image_url = "https://i.imgur.com/4QfKuz1.png"
+                )
+            ]
+            line_bot_api.reply_message(event.reply_token,message)
+        except:
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+
 def sendBack_buy(event, backdata):  #處理Postback
     try:
         text1 = '感謝您購買披薩，我們將盡快為您製作。\n(action 的值為 ' + backdata.get('action') + ')'
@@ -214,6 +237,8 @@ def sendBack_sell(event, backdata):  #處理Postback
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+
+
 
 if __name__ == '__main__':
     app.run()
