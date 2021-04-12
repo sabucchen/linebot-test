@@ -107,17 +107,17 @@ def sendCarousel(event):  #轉盤樣板
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/4QfKuz1.png',
+                        thumbnail_image_url='https://doqvf81n9htmm.cloudfront.net/data/crop_article/93421/091304.jpg_1140x855.jpg',
                         title='這是樣板一',
                         text='第一個轉盤樣板',
                         actions=[
                             MessageTemplateAction(
                                 label='文字訊息一',
-                                text='賣披薩'
+                                text='素月餅'
                             ),
                             URITemplateAction(
-                                label='連結文淵閣網頁',
-                                uri='http://www.e-happy.com.tw'
+                                label='連結網頁',
+                                uri='https://www.taipeileechi.com.tw/'
                             ),
                             PostbackTemplateAction(
                                 label='回傳訊息一',
@@ -126,17 +126,17 @@ def sendCarousel(event):  #轉盤樣板
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/qaAdBkR.png',
+                        thumbnail_image_url='https://www.taipeileechi.com.tw/ProductCategory/ProductUnit20140606193619.jpg',
                         title='這是樣板二',
                         text='第二個轉盤樣板',
                         actions=[
                             MessageTemplateAction(
                                 label='文字訊息二',
-                                text='賣飲料'
+                                text='葷月餅'
                             ),
                             URITemplateAction(
-                                label='連結台大網頁',
-                                uri='http://www.ntu.edu.tw'
+                                label='連結網頁',
+                                uri='https://www.taipeileechi.com.tw/web/frmProductDetail.aspx?MenuID=4&ProductID=20'
                             ),
                             PostbackTemplateAction(
                                 label='回傳訊息二',
@@ -161,7 +161,7 @@ def sendImgCarousel(event):  #圖片轉盤
                         image_url='https://i.imgur.com/4QfKuz1.png',
                         action=MessageTemplateAction(
                             label='文字訊息',
-                            text='賣披薩'
+                            text='素月餅'
                         )
                     ),
                     ImageCarouselColumn(
