@@ -35,8 +35,8 @@ def handle_message(event):
     elif mtext == '@圖片轉盤':
         sendImgCarousel(event)
 
-    elif mtext == '@購買披薩':
-        sendPizza(event)
+    elif mtext == '@購買月餅':
+        sendMoon(event)
 
     elif mtext == '@yes':
         sendYes(event)
@@ -178,10 +178,10 @@ def sendImgCarousel(event):  #圖片轉盤
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendPizza(event):
+def sendMoon(event):
     try:
         message = TextSendMessage(
-            text = '感謝您購買披薩，我們將盡快為您製作。'
+            text = '感謝您購買月餅，我們將盡快為您製作。'
         )
         line_bot_api.reply_message(event.reply_token, message)
     except:
