@@ -54,17 +54,17 @@ def sendButton(event):  #按鈕樣版
         message = TemplateSendMessage(
             alt_text='按鈕樣板',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://i.imgur.com/4QfKuz1.png',  #顯示的圖片
+                thumbnail_image_url='https://github.com/sabucchen/pic/blob/main/5b8cdbc6-3bb0-404f-927d-b1aca7f7462b.jpg',  #顯示的圖片
                 title='按鈕樣版示範',  #主標題
                 text='請選擇：',  #副標題
                 actions=[
                     MessageTemplateAction(  #顯示文字計息
                         label='文字訊息',
-                        text='@購買披薩'
+                        text='@購買月餅'
                     ),
                     URITemplateAction(  #開啟網頁
                         label='連結網頁',
-                        uri='http://www.e-happy.com.tw'
+                        uri='https://www.taipeileechi.com.tw/web/frmProductList.aspx?MenuID=4'
                     ),
                     PostbackTemplateAction(  #執行Postback功能,觸發Postback事件
                         label='回傳訊息',  #按鈕文字
