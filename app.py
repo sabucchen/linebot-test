@@ -35,7 +35,7 @@ def handle_message(event):
     elif mtext == '@圖片轉盤':
         sendImgCarousel(event)
 
-    elif mtext == '@購買月餅':
+    elif mtext == '@我要買豆沙月餅':
         sendMoon(event)
 
     elif mtext == '@yes':
@@ -55,12 +55,12 @@ def sendButton(event):  #按鈕樣版
             alt_text='按鈕樣板',
             template=ButtonsTemplate(
                 thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/mooncake_01.png',  #顯示的圖片
-                title='按鈕樣版示範',  #主標題
+                title='小美噗豆沙月餅',  #主標題
                 text='請選擇：',  #副標題
                 actions=[
                     MessageTemplateAction(  #顯示文字計息
-                        label='文字訊息',
-                        text='@購買月餅'
+                        label='我要+1',
+                        text='@我要買豆沙月餅'
                     ),
                     URITemplateAction(  #開啟網頁
                         label='連結網頁',
@@ -107,9 +107,9 @@ def sendCarousel(event):  #轉盤樣板
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
-                        thumbnail_image_url='https://doqvf81n9htmm.cloudfront.net/data/crop_article/93421/091304.jpg_1140x855.jpg',
-                        title='這是樣板一',
-                        text='第一個轉盤樣板',
+                        thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/mooncake_02.png',
+                        title='小美噗素豆沙月餅',
+                        text='奶素',
                         actions=[
                             MessageTemplateAction(
                                 label='文字訊息一',
