@@ -54,7 +54,7 @@ def sendButton(event):  #按鈕樣版
         message = TemplateSendMessage(
             alt_text='按鈕樣板',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://github.com/sabucchen/pic/blob/main/%E6%9C%88%E9%A4%85%E5%9C%9601.png',  #顯示的圖片
+                thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/%E6%9C%88%E9%A4%85%E5%9C%9601.png',  #顯示的圖片
                 title='按鈕樣版示範',  #主標題
                 text='請選擇：',  #副標題
                 actions=[
