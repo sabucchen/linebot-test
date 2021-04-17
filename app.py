@@ -204,30 +204,26 @@ def sendBack_buy(event, backdata):  #處理Postback
     try:
         #text1 = '感謝您的購買，我們將盡快為您處理。\n(action 的值為 ' + backdata.get('action') + ')'
         #text1 += '\n(可將處理程式寫在此處。)'
-        message = [
-            TextSendMessage(  #傳送文字
-                text = 'text1'
-            ),
-            TextSendMessage(
-                text='您還滿意這次的服務嗎？',
-                quick_reply=QuickReply(
-                    items=[
+        message = TextSendMessage(
+            text='您還滿意這次的服務嗎？',
+            quick_reply=QuickReply(
+                items=[
+                    QuickReplyButton(
+                        action=MessageAction(label="非常滿意", text="非常滿意")
+                    ),
+                    QuickReplyButton(
+                        action=MessageAction(label="滿意", text="滿意")
+                    ),
                         QuickReplyButton(
-                            action=MessageAction(label="非常滿意", text="非常滿意")
-                        ),
+                        action=MessageAction(label="普通", text="普通")
+                    ),
                         QuickReplyButton(
-                            action=MessageAction(label="滿意", text="滿意")
-                        ),
-                        QuickReplyButton(
-                            action=MessageAction(label="普通", text="普通")
-                        ),
-                        QuickReplyButton(
-                            action=MessageAction(label="有待改善", text="有待改善")
-                        ),
-                    ]
-                )
+                        action=MessageAction(label="有待改善", text="有待改善")
+                     ),
+                ]
             )
-        ]
+        )
+        
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
