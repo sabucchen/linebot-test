@@ -4,10 +4,7 @@ app = Flask(__name__)
 from flask import request, abort
 from linebot import  LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
-from linebot.models import MessageEvent, TextMessage, PostbackEvent, TextSendMessage, 
-emplateSendMessage, ConfirmTemplate, MessageTemplateAction, ButtonsTemplate, 
-PostbackTemplateAction, URITemplateAction, CarouselTemplate, CarouselColumn, 
-ImageCarouselTemplate, ImageCarouselColumn, LocationSendMessage, QuickReply, QuickReplyButton
+from linebot.models import MessageEvent, TextMessage, PostbackEvent, TextSendMessage, emplateSendMessage, ConfirmTemplate, MessageTemplateAction, ButtonsTemplate, PostbackTemplateAction, URITemplateAction, CarouselTemplate, CarouselColumn, ImageCarouselTemplate, ImageCarouselColumn, LocationSendMessage, QuickReply, QuickReplyButton, MessageAction 
 
 line_bot_api = LineBotApi('c5d4HO2JNGbKKQSSGnu7QiOCf0/+/ROYQUS3taDxc/xSEn68ZN+EiFEgQdtDn4429MrvhKyE1sJ6u8Feu6dG3bOWZfpse/mvsuzGk08Mqtrek0iF+7TUQEMRn5cwbsAHUASgtWu2zdrR9lhgcFas5gdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('2b1ddbe9c87280e1ac453de1cf0c5ac3')
