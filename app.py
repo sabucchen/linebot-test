@@ -205,11 +205,11 @@ def sendYes(event):
 
 def sendBack_buy(event, backdata):  #處理Postback
     try:
-        text1 = '感謝您的購買，我們將盡快為您處理。\n(action 的值為 ' + backdata.get('action') + ')'
-        text1 += '\n(可將處理程式寫在此處。)'
+        #text1 = '感謝您的購買，我們將盡快為您處理。\n(action 的值為 ' + backdata.get('action') + ')'
+        #text1 += '\n(可將處理程式寫在此處。)'
         message = [
             TextSendMessage(  #傳送文字
-                text = text1
+                text = 'text1'
             ),
             TextSendMessage(
                 text='您還滿意這次的服務嗎？',
