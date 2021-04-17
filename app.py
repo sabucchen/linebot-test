@@ -23,7 +23,7 @@ def callback():
 def handle_message(event):
     mtext = event.message.text
     
-    if mtext == '@按鈕樣板':
+    if mtext == '我要買月餅':
         sendButton(event)
 
     elif mtext == '@確認樣板':
@@ -56,7 +56,7 @@ def handle_postback(event):
 def sendButton(event):  #按鈕樣版
     try:
         message = TemplateSendMessage(
-            alt_text='按鈕樣板',
+            alt_text='我要買月餅',
             template=ButtonsTemplate(
                 thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/mooncake_01.png',  #顯示的圖片
                 title='小美噗豆沙月餅',  #主標題
