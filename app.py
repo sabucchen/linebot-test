@@ -4,7 +4,10 @@ app = Flask(__name__)
 from flask import request, abort
 from linebot import  LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
-from linebot.models import MessageEvent, TextMessage, PostbackEvent, TextSendMessage, TemplateSendMessage, ConfirmTemplate, MessageTemplateAction, ButtonsTemplate, PostbackTemplateAction, URITemplateAction, CarouselTemplate, CarouselColumn, ImageCarouselTemplate, ImageCarouselColumn, LocationSendMessage
+from linebot.models import MessageEvent, TextMessage, PostbackEvent, TextSendMessage, 
+emplateSendMessage, ConfirmTemplate, MessageTemplateAction, ButtonsTemplate, 
+PostbackTemplateAction, URITemplateAction, CarouselTemplate, CarouselColumn, 
+ImageCarouselTemplate, ImageCarouselColumn, LocationSendMessage, QuickReply, QuickReplyButton
 
 line_bot_api = LineBotApi('c5d4HO2JNGbKKQSSGnu7QiOCf0/+/ROYQUS3taDxc/xSEn68ZN+EiFEgQdtDn4429MrvhKyE1sJ6u8Feu6dG3bOWZfpse/mvsuzGk08Mqtrek0iF+7TUQEMRn5cwbsAHUASgtWu2zdrR9lhgcFas5gdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('2b1ddbe9c87280e1ac453de1cf0c5ac3')
@@ -202,11 +205,32 @@ def sendYes(event):
 
 def sendBack_buy(event, backdata):  #處理Postback
     try:
-        text1 = '感謝您購買披薩，我們將盡快為您製作。\n(action 的值為 ' + backdata.get('action') + ')'
+        text1 = '感謝您的購買，我們將盡快為您處理。\n(action 的值為 ' + backdata.get('action') + ')'
         text1 += '\n(可將處理程式寫在此處。)'
-        message = TextSendMessage(  #傳送文字
-            text = text1
-        )
+        message = [
+            TextSendMessage(  #傳送文字
+                text = text1
+            ),
+            TextSendMessage(
+                text='您還滿意這次的服務嗎？',
+                quick_reply=QuickReply(
+                    items=[
+                        QuickReplyButton(
+                            action=MessageAction(label="非常滿意", text="非常滿意")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="滿意", text="滿意")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="普通", text="普通")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="有待改善", text="有待改善")
+                        ),
+                    ]
+                )
+            )
+        ]
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
