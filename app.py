@@ -184,9 +184,30 @@ def sendImgCarousel(event):  #圖片轉盤
 
 def sendMoon(event):
     try:
-        message = TextSendMessage(
-            text = '感謝您購買月餅，我們將盡快為您製作。'
-        )
+        message =[
+            TextSendMessage(
+                text = '感謝您購買月餅，我們將盡快為您製作。'
+            ),
+            TextSendMessage(
+                text='您還滿意這次的服務嗎？',
+                quick_reply=QuickReply(
+                    items=[
+                        QuickReplyButton(
+                            action=MessageAction(label="非常滿意", text="非常滿意")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="滿意", text="滿意")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="普通", text="普通")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="有待改善", text="有待改善")
+                        ),
+                    ]
+                )
+            )
+        ] 
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
