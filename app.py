@@ -41,6 +41,10 @@ def handle_message(event):
     elif mtext == '@yes':
         sendYes(event)
 
+    elif mtext in ['位置', '實體店面', '地址']:
+        sendMap(event)
+
+
 @handler.add(PostbackEvent)  #PostbackTemplateAction觸發此事件
 def handle_postback(event):
     backdata = dict(parse_qsl(event.postback.data))  #取得Postback資料
@@ -216,6 +220,17 @@ def sendBack_sell(event, backdata):  #處理Postback
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
+def sendMap(event):
+    try:
+        message = LocationSendMessage(
+            title='小美噗',
+            address='10608台北市大安區忠孝東路三段1號',
+            latitude=25.04353847631958,  #緯度
+            longitude=121.53769576931987  #經度25.04353847631958, 121.53769576931987
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 
 if __name__ == '__main__':
