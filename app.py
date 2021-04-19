@@ -29,7 +29,7 @@ def handle_message(event):
     elif mtext == '@確認樣板':
         sendConfirm(event)
 
-    elif mtext == '@轉盤樣板':
+    elif mtext == '轉盤樣板':
         sendCarousel(event)
 
     elif mtext == '@圖片轉盤':
@@ -116,8 +116,8 @@ def sendCarousel(event):  #轉盤樣板
                         text='奶素',
                         actions=[
                             MessageTemplateAction(
-                                label='文字訊息一',
-                                text='素月餅'
+                                label='成份說明',
+                                text='成份說明'
                             ),
                             URITemplateAction(
                                 label='連結網頁',
@@ -131,12 +131,12 @@ def sendCarousel(event):  #轉盤樣板
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://www.taipeileechi.com.tw/ProductCategory/ProductUnit20140606193619.jpg',
-                        title='這是樣板二',
-                        text='第二個轉盤樣板',
+                        title='小美噗金黃蛋月餅',
+                        text='蛋奶素',
                         actions=[
                             MessageTemplateAction(
-                                label='文字訊息二',
-                                text='葷月餅'
+                                label='成份說明',
+                                text='成份說明'
                             ),
                             URITemplateAction(
                                 label='連結網頁',
