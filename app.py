@@ -49,6 +49,9 @@ def handle_message(event):
     elif mtext == '你好':
         sendHi(event)
 
+    elif mtext == '導覽機器人服務':
+        sendRobotService(event)
+
 
 @handler.add(PostbackEvent)  #PostbackTemplateAction觸發此事件
 def handle_postback(event):
@@ -81,6 +84,35 @@ def sendHi(event): #想要一開始就傳送打招呼跟選擇真人導覽或是
             line_bot_api.reply_message(event.reply_token, message)
         except:
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+
+def sendRobotService(event):
+    try:
+        message =TextSendMessage(
+            text='請選擇要導覽的項目:',
+            quick_reply=QuickReply(
+                items=[
+                    QuickReplyButton(
+                        action=MessageAction(label="景點查詢", text="景點查詢")
+                    ),
+                    QuickReplyButton(
+                        action=MessageAction(label="遊記查詢", text="遊記查詢")
+                    ),
+                    QuickReplyButton(
+                        action=MessageAction(label="交通查詢", text="交通查詢")
+                    ),
+                    QuickReplyButton(
+                        action=MessageAction(label="路線查詢", text="路線查詢")
+                    ),
+                    QuickReplyButton(
+                        action=MessageAction(label="天氣查詢", text="天氣查詢")
+                    ),
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+
 
 def sendButton(event):  #按鈕樣版
     try:
