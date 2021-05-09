@@ -77,8 +77,8 @@ def sendHi(event): #想要一開始就傳送打招呼跟選擇真人導覽或是
                         ]
                     )
                 )
-            line_bot_api.reply_message(event.reply_token, message)
             ]
+            line_bot_api.reply_message(event.reply_token, message)
         except:
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
