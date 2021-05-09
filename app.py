@@ -31,8 +31,8 @@ def handle_message(event):
     elif mtext == '@確認樣板': #這像是會顯示你確定要購買商品並且有是跟否
         sendConfirm(event)
 
-    elif mtext == '轉盤樣板': #這是有非常多個單頁的旋轉樣板
-        sendCarousel(event)
+    elif mtext == '景點查詢': #這是有非常多個單頁的旋轉樣板
+        sendViewPoint(event)
 
     elif mtext == '@圖片轉盤': #點選圖片會有文字產生
         sendImgCarousel(event)
@@ -85,7 +85,7 @@ def sendHi(event): #想要一開始就傳送打招呼跟選擇真人導覽或是
         except:
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendRobotService(event):
+def sendRobotService(event): #當點選到機器人導覽服務的時候會產出五項快速選單
     try:
         message =TextSendMessage(
             text='請選擇要導覽的項目:',
@@ -112,7 +112,6 @@ def sendRobotService(event):
         line_bot_api.reply_message(event.reply_token, message)
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
 
 def sendButton(event):  #按鈕樣版
     try:
@@ -165,49 +164,29 @@ def sendConfirm(event):  #YES NO 確認樣板
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendCarousel(event):  #轉盤樣板
+def sendViewPoint(event):  #景點查詢的轉盤樣板
     try:
         message = TemplateSendMessage(
-            alt_text='轉盤樣板',
+            alt_text='景點查詢',
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
-                        thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/mooncake_02.png',
-                        title='小美噗素豆沙月餅',
-                        text='奶素',
-                        actions=[
-                            MessageTemplateAction(
-                                label='成份說明',
-                                text='成份說明'
-                            ),
-                            URITemplateAction(
-                                label='連結網頁',
-                                uri='https://www.taipeileechi.com.tw/'
-                            ),
-                            PostbackTemplateAction(
-                                label='回傳訊息一',
-                                data='action=sell&item=披薩'
-                            ),
-                        ]
+                        thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/%E9%99%B3%E5%A4%A9%E4%BE%86%E6%95%85%E5%B1%85.jpg',
+                        title='古蹟介紹',
+                        # text='奶素',
+                        actions=MessageTemplateAction(
+                            label='了解更多',
+                            text='了解更多'
+                        ),
                     ),
                     CarouselColumn(
                         thumbnail_image_url='https://www.taipeileechi.com.tw/ProductCategory/ProductUnit20140606193619.jpg',
-                        title='小美噗金黃蛋月餅',
-                        text='蛋奶素',
-                        actions=[
-                            MessageTemplateAction(
-                                label='成份說明',
-                                text='成份說明'
-                            ),
-                            URITemplateAction(
-                                label='連結網頁',
-                                uri='https://www.taipeileechi.com.tw/web/frmProductDetail.aspx?MenuID=4&ProductID=20'
-                            ),
-                            PostbackTemplateAction(
-                                label='回傳訊息二',
-                                data='action=sell&item=飲料'
-                            ),
-                        ]
+                        title='歷史廟宇',
+                        # text='蛋奶素',
+                        actions=MessageTemplateAction(
+                            label='了解更多',
+                            text='了解更多'
+                        ),
                     )
                 ]
             )
