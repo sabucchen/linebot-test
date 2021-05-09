@@ -46,7 +46,7 @@ def handle_message(event):
     elif mtext in ['位置', '實體店面', '地址']: #傳送位置
         sendMap(event)
 
-    elif mtext == 'hi'
+    elif mtext == '你好':
         sendHi(event)
 
 
