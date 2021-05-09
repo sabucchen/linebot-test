@@ -9,6 +9,7 @@ from linebot.models import MessageEvent, TextMessage, PostbackEvent, TextSendMes
 line_bot_api = LineBotApi('c5d4HO2JNGbKKQSSGnu7QiOCf0/+/ROYQUS3taDxc/xSEn68ZN+EiFEgQdtDn4429MrvhKyE1sJ6u8Feu6dG3bOWZfpse/mvsuzGk08Mqtrek0iF+7TUQEMRn5cwbsAHUASgtWu2zdrR9lhgcFas5gdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('2b1ddbe9c87280e1ac453de1cf0c5ac3')
 
+#這塊APP回應的地方
 @app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
@@ -19,30 +20,34 @@ def callback():
         abort(400)
     return 'OK'
 
+#收到使用者傳什麼訊息接收用的
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    mtext = event.message.text
+    mtext = event.message.text #使用者輸入的文字
     
-    if mtext == '我要買月餅':
+    if mtext == '我要買月餅': #單單一頁的並包含三個按鈕
         sendButton(event)
 
-    elif mtext == '@確認樣板':
+    elif mtext == '@確認樣板': #這像是會顯示你確定要購買商品並且有是跟否
         sendConfirm(event)
 
-    elif mtext == '轉盤樣板':
+    elif mtext == '轉盤樣板': #這是有非常多個單頁的旋轉樣板
         sendCarousel(event)
 
-    elif mtext == '@圖片轉盤':
+    elif mtext == '@圖片轉盤': #點選圖片會有文字產生
         sendImgCarousel(event)
 
-    elif mtext == '@我要買豆沙月餅':
+    elif mtext == '@我要買豆沙月餅': #當使用者輸入這字串會觸發快速選單(就是下面會有一排按鈕)
         sendMoon(event)
 
-    elif mtext == '@yes':
+    elif mtext == '@yes': #純粹的文字回復
         sendYes(event)
 
-    elif mtext in ['位置', '實體店面', '地址']:
+    elif mtext in ['位置', '實體店面', '地址']: #傳送位置
         sendMap(event)
+
+    elif mtext == 'hi'
+        sendHi(event)
 
 
 @handler.add(PostbackEvent)  #PostbackTemplateAction觸發此事件
@@ -52,6 +57,15 @@ def handle_postback(event):
         sendBack_buy(event, backdata)
     elif backdata.get('action') == 'sell':
         sendBack_sell(event, backdata)
+
+def sendHi(event):
+        try:
+            message = TextSendMessage(
+                text='你好，需要什麼幫助嗎?',
+            )
+            line_bot_api.reply_message(event.reply_token, message)
+        except:
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 def sendButton(event):  #按鈕樣版
     try:
@@ -268,7 +282,7 @@ def sendMap(event):
         )
         line_bot_api.reply_message(event.reply_token, message)
     except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))  #傳送位置
 
 
 if __name__ == '__main__':
