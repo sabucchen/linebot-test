@@ -58,12 +58,27 @@ def handle_postback(event):
     elif backdata.get('action') == 'sell':
         sendBack_sell(event, backdata)
 
-def sendHi(event):
+def sendHi(event): #想要一開始就傳送打招呼跟選擇真人導覽或是機器人導覽
         try:
-            message = TextSendMessage(
-                text='你好，需要什麼幫助嗎?',
-            )
+            message =[ 
+                TextSendMessage(
+                    text='你好，需要什麼幫助嗎?',
+                ),
+                TextSendMessage(
+                    text='請選擇導覽服務類型',
+                    quick_reply=QuickReply(
+                        items=[
+                            QuickReplyButton(
+                                action=MessageAction(label="真人導覽服務", text="真人導覽服務")
+                            ),
+                            QuickReplyButton(
+                                action=MessageAction(label="導覽機器人服務", text="導覽機器人服務")
+                            ),
+                        ]
+                    )
+                )
             line_bot_api.reply_message(event.reply_token, message)
+            ]
         except:
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
@@ -96,7 +111,7 @@ def sendButton(event):  #按鈕樣版
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
-def sendConfirm(event):  #確認樣板
+def sendConfirm(event):  #YES NO 確認樣板
     try:
         message = TemplateSendMessage(
             alt_text='確認樣板',
