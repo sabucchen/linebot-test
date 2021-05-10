@@ -266,7 +266,6 @@ def sendViewPointPhoto(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 
-
 def sendImgCarousel(event):  #圖片轉盤
     try:
         message = TemplateSendMessage(
