@@ -208,7 +208,7 @@ def sendViewPoint(event):  #景點的轉盤樣板
                                 data='action=sell&item=飲料'
                             ),
                         ]
-                    )
+                    ),
                     CarouselColumn(
                         thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/%E5%8F%B0%E5%8C%97%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F.jpg',
                         title='特色商行',
