@@ -34,7 +34,10 @@ def handle_message(event):
     elif mtext == '景點查詢': #這是有非常多個單頁的旋轉樣板
         sendViewPoint(event)
 
-    elif mtext == '@圖片轉盤': #點選圖片會有文字產生
+    elif mtext == '景點查詢': #這是有非常多個單頁的旋轉樣板
+        sendViewPoint(event)
+
+    elif mtext == '了解特色景點更多': #點選圖片會有文字產生
         sendImgCarousel(event)
 
     elif mtext == '@我要買豆沙月餅': #當使用者輸入這字串會觸發快速選單(就是下面會有一排按鈕)
@@ -177,8 +180,8 @@ def sendViewPoint(event):  #景點的轉盤樣板
                         text='古蹟介紹',
                         actions=[
                             MessageTemplateAction(
-                                label='了解更多',
-                                text='了解更多'
+                                label='了解古蹟更多',
+                                text='了解古蹟更多'
                             ),
                             URITemplateAction(
                                 label='VR虛擬導覽',
@@ -234,8 +237,8 @@ def sendViewPoint(event):  #景點的轉盤樣板
                         text='特色景點',
                         actions=[
                             MessageTemplateAction(
-                                label='了解更多',
-                                text='了解更多'
+                                label='了解特色景點更多',
+                                text='了解特色景點更多'
                             ),
                             URITemplateAction(
                                 label='VR虛擬導覽',
@@ -255,62 +258,32 @@ def sendViewPoint(event):  #景點的轉盤樣板
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 
-# def sendViewPointPhoto(event):
-#     try:
-#         message = TemplateSendMessage(
-#             alt_text='景點查詢',
-#             template=ImageCarouselTemplate(
-#                 columns=[
-#                     ImageCarouselColumn(
-#                         image_url='https://example.com/item1.jpg',
-#                         action=PostbackAction(
-#                         label='postback1',
-#                         display_text='postback text1',
-#                         data='action=buy&itemid=1'
-#                         )
-#                     ),
-#                     ImageCarouselColumn(
-#                         image_url='https://example.com/item2.jpg',
-#                         action=PostbackAction(
-#                         label='postback2',
-#                         display_text='postback text2',
-#                         data='action=buy&itemid=2'
-#                         )
-#                     )
-#                 ]
-#             )    
-#         )
-#         line_bot_api.reply_message(event.reply_token,message)
-#     except:
-#         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
-
-
-# def sendImgCarousel(event):  #圖片轉盤
-#     try:
-#         message = TemplateSendMessage(
-#             alt_text='圖片轉盤樣板',
-#             template=ImageCarouselTemplate(
-#                 columns=[
-#                     ImageCarouselColumn(
-#                         image_url='https://i.imgur.com/4QfKuz1.png',
-#                         action=MessageTemplateAction(
-#                             label='文字訊息',
-#                             text='素月餅'
-#                         )
-#                     ),
-#                     ImageCarouselColumn(
-#                         image_url='https://i.imgur.com/qaAdBkR.png',
-#                         action=PostbackTemplateAction(
-#                             label='回傳訊息',
-#                             data='action=sell&item=飲料'
-#                         )
-#                     )
-#                 ]
-#             )
-#         )
-#         line_bot_api.reply_message(event.reply_token,message)
-#     except:
-#         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+def sendImgCarousel(event):  #圖片轉盤
+    try:
+        message = TemplateSendMessage(
+            alt_text='了解特色景點更多',
+            template=ImageCarouselTemplate(
+                columns=[
+                    ImageCarouselColumn(
+                        image_url='https://raw.githubusercontent.com/sabucchen/pic/main/%E5%A4%A7%E7%A8%BB%E5%9F%95%E7%A2%BC%E9%A0%AD.jpg',
+                        action=MessageTemplateAction(
+                            label='大稻埕碼頭',
+                            text='大稻埕碼頭'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://raw.githubusercontent.com/sabucchen/pic/main/%E5%A4%A7%E7%A8%BB%E5%9F%95%E6%88%B2%E9%99%A2.jpg',
+                        action=PostbackTemplateAction(
+                            label='大稻埕戲院',
+                            text='大稻埕戲院'
+                        )
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token,message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 def sendMoon(event):
     try:
