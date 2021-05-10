@@ -364,7 +364,7 @@ def sendBack_sell(event, backdata):  #處理Postback
 def sendMap(event):
     try:
         message = LocationSendMessage(
-            title='小美噗',
+            title='國立臺北科技大學',
             address='10608台北市大安區忠孝東路三段1號',
             latitude=25.04353847631958,  #緯度
             longitude=121.53769576931987  #經度25.04353847631958, 121.53769576931987
