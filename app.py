@@ -165,7 +165,7 @@ def sendConfirm(event):  #YES NO 確認樣板
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 
-def sendViewPoint(event):  #景點的轉盤樣板
+# def sendViewPoint(event):  #景點的轉盤樣板
     try:
         message = TemplateSendMessage(
             alt_text='景點查詢',
@@ -235,6 +235,35 @@ def sendViewPoint(event):  #景點的轉盤樣板
     except:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
+
+def sendViewPointPhoto(event):
+    try:
+        message = TemplateSendMessage(
+            alt_text='景點查詢',
+            template=ImageCarouselTemplate(
+                columns=[
+                    ImageCarouselColumn(
+                        image_url='https://example.com/item1.jpg',
+                        action=PostbackAction(
+                        label='postback1',
+                        display_text='postback text1',
+                        data='action=buy&itemid=1'
+                        )
+                    ),
+                    ImageCarouselColumn(
+                        image_url='https://example.com/item2.jpg',
+                        action=PostbackAction(
+                        label='postback2',
+                        display_text='postback text2',
+                        data='action=buy&itemid=2'
+                        )
+                    )
+                ]
+            )    
+        )
+        line_bot_api.reply_message(event.reply_token,message)
+    except:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 
 
