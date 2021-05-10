@@ -32,7 +32,7 @@ def handle_message(event):
         sendConfirm(event)
 
     elif mtext == '景點查詢': #這是有非常多個單頁的旋轉樣板
-        sendViewPointPhoto(event)
+        sendViewPoint(event)
 
     elif mtext == '@圖片轉盤': #點選圖片會有文字產生
         sendImgCarousel(event)
