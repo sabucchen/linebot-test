@@ -25,7 +25,7 @@ def callback():
 def handle_message(event):
     mtext = event.message.text #使用者輸入的文字
     
-    if mtext == '我要買月餅': #單單一頁的並包含三個按鈕
+    if mtext == '大稻埕碼頭': #單單一頁的並包含三個按鈕
         sendButton(event)
 
     elif mtext == '@確認樣板': #這像是會顯示你確定要購買商品並且有是跟否
@@ -119,19 +119,19 @@ def sendRobotService(event): #當點選到機器人導覽服務的時候會產�
 def sendButton(event):  #按鈕樣版
     try:
         message = TemplateSendMessage(
-            alt_text='我要買月餅',
+            alt_text='大稻埕碼頭',
             template=ButtonsTemplate(
-                thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/mooncake_01.png',  #顯示的圖片
-                title='小美噗豆沙月餅',  #主標題
+                thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/%E5%A4%A7%E7%A8%BB%E5%9F%95%E5%B9%B3%E9%9D%A2%E7%85%A7_210510_39.jpg',  #顯示的圖片
+                title='關於大稻埕碼頭的故事',  #主標題
                 text='請選擇：',  #副標題
                 actions=[
                     MessageTemplateAction(  #顯示文字計息
-                        label='我要+1',
-                        text='@我要買豆沙月餅'
+                        label='歷史故事',
+                        text='歷史故事'
                     ),
                     URITemplateAction(  #開啟網頁
-                        label='連結網頁',
-                        uri='https://www.taipeileechi.com.tw/web/frmProductList.aspx?MenuID=4'
+                        label='VR虛擬導覽',
+                        uri='https://my-parpertest.web.app/hello/hello.html'
                     ),
                     PostbackTemplateAction(  #執行Postback功能,觸發Postback事件
                         label='回傳訊息',  #按鈕文字
