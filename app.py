@@ -285,32 +285,32 @@ def sendViewPoint(event):  #景點的轉盤樣板
 #         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 
-def sendImgCarousel(event):  #圖片轉盤
-    try:
-        message = TemplateSendMessage(
-            alt_text='圖片轉盤樣板',
-            template=ImageCarouselTemplate(
-                columns=[
-                    ImageCarouselColumn(
-                        image_url='https://i.imgur.com/4QfKuz1.png',
-                        action=MessageTemplateAction(
-                            label='文字訊息',
-                            text='素月餅'
-                        )
-                    ),
-                    ImageCarouselColumn(
-                        image_url='https://i.imgur.com/qaAdBkR.png',
-                        action=PostbackTemplateAction(
-                            label='回傳訊息',
-                            data='action=sell&item=飲料'
-                        )
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token,message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+# def sendImgCarousel(event):  #圖片轉盤
+#     try:
+#         message = TemplateSendMessage(
+#             alt_text='圖片轉盤樣板',
+#             template=ImageCarouselTemplate(
+#                 columns=[
+#                     ImageCarouselColumn(
+#                         image_url='https://i.imgur.com/4QfKuz1.png',
+#                         action=MessageTemplateAction(
+#                             label='文字訊息',
+#                             text='素月餅'
+#                         )
+#                     ),
+#                     ImageCarouselColumn(
+#                         image_url='https://i.imgur.com/qaAdBkR.png',
+#                         action=PostbackTemplateAction(
+#                             label='回傳訊息',
+#                             data='action=sell&item=飲料'
+#                         )
+#                     )
+#                 ]
+#             )
+#         )
+#         line_bot_api.reply_message(event.reply_token,message)
+#     except:
+#         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 def sendMoon(event):
     try:
