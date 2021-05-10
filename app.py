@@ -185,7 +185,7 @@ def sendViewPoint(event):  #景點的轉盤樣板
                                 uri='https://my-parpertest.web.app/hello/hello.html'
                             ),
                             PostbackTemplateAction(
-                                # label='回傳訊息一',
+                                label='回傳訊息一',
                                 data='action=sell&item=披薩'
                             ),
                         ]
@@ -204,7 +204,7 @@ def sendViewPoint(event):  #景點的轉盤樣板
                                 uri='https://my-parpertest.web.app/hello/hello.html'
                             ),
                             PostbackTemplateAction(
-                                # label='回傳訊息二',
+                                label='回傳訊息二',
                                 data='action=sell&item=飲料'
                             ),
                         ]
@@ -223,7 +223,7 @@ def sendViewPoint(event):  #景點的轉盤樣板
                                 uri='https://my-parpertest.web.app/hello/hello.html'
                             ),
                             PostbackTemplateAction(
-                                # label='回傳訊息二',
+                                label='回傳訊息二',
                                 data='action=sell&item=飲料'
                             ),
                         ]
@@ -242,7 +242,7 @@ def sendViewPoint(event):  #景點的轉盤樣板
                                 uri='https://my-parpertest.web.app/hello/hello.html'
                             ),
                             PostbackTemplateAction(
-                                # gilabel='回傳訊息四',
+                                gilabel='回傳訊息四',
                                 data='action=sell&item=飲料'
                             ),
                         ]
