@@ -242,7 +242,7 @@ def sendViewPoint(event):  #景點的轉盤樣板
                                 uri='https://my-parpertest.web.app/hello/hello.html'
                             ),
                             PostbackTemplateAction(
-                                gilabel='回傳訊息四',
+                                label='回傳訊息四',
                                 data='action=sell&item=飲料'
                             ),
                         ]
