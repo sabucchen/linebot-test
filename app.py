@@ -273,7 +273,7 @@ def sendImgCarousel(event):  #圖片轉盤
                     ),
                     ImageCarouselColumn(
                         image_url='https://raw.githubusercontent.com/sabucchen/pic/main/%E5%A4%A7%E7%A8%BB%E5%9F%95%E6%88%B2%E9%99%A2.jpg',
-                        action=PostbackTemplateAction(
+                        action=MessageTemplateAction(
                             label='大稻埕戲院',
                             text='大稻埕戲院'
                         )
