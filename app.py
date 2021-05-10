@@ -166,74 +166,74 @@ def sendConfirm(event):  #YES NO 確認樣板
 
 
 # def sendViewPoint(event):  #景點的轉盤樣板
-    try:
-        message = TemplateSendMessage(
-            alt_text='景點查詢',
-            template=CarouselTemplate(
-                columns=[
-                    CarouselColumn(
-                        thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/%E9%99%B3%E5%A4%A9%E4%BE%86%E6%95%85%E5%B1%85.jpg',
-                        title='古蹟介紹',
-                        text='古蹟介紹',
-                        actions=[
-                            MessageTemplateAction(
-                                label='了解更多',
-                                text='了解更多'
-                            ),
-                            URITemplateAction(
-                                label='VR虛擬導覽',
-                                uri='http://www.e-happy.com.tw'
-                            ),
-                            # PostbackTemplateAction(
-                            #     label='回傳訊息一',
-                            #     data='action=sell&item=披薩'
-                            # ),
-                        ]
-                    ),
-                    CarouselColumn(
-                        thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/%E5%8F%B0%E5%8C%97%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F.jpg',
-                        title='歷史廟宇',
-                        text='歷史廟宇',
-                        actions=[
-                            MessageTemplateAction(
-                                label='了解更多',
-                                text='了解更多'
-                            ),
-                            URITemplateAction(
-                                label='VR虛擬導覽',
-                                uri='http://www.ntu.edu.tw'
-                            ),
-                            PostbackTemplateAction(
-                                label='回傳訊息二',
-                                data='action=sell&item=飲料'
-                            ),
-                        ]
-                    )
-                    CarouselColumn(
-                        thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/%E5%8F%B0%E5%8C%97%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F.jpg',
-                        title='特色商行',
-                        text='特色商行',
-                        actions=[
-                            MessageTemplateAction(
-                                label='了解更多',
-                                text='了解更多'
-                            ),
-                            URITemplateAction(
-                                label='VR虛擬導覽',
-                                uri='http://www.ntu.edu.tw'
-                            ),
-                            PostbackTemplateAction(
-                                label='回傳訊息二',
-                                data='action=sell&item=飲料'
-                            ),
-                        ]
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token,message)
-    except:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
+#     try:
+#         message = TemplateSendMessage(
+#             alt_text='景點查詢',
+#             template=CarouselTemplate(
+#                 columns=[
+#                     CarouselColumn(
+#                         thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/%E9%99%B3%E5%A4%A9%E4%BE%86%E6%95%85%E5%B1%85.jpg',
+#                         title='古蹟介紹',
+#                         text='古蹟介紹',
+#                         actions=[
+#                             MessageTemplateAction(
+#                                 label='了解更多',
+#                                 text='了解更多'
+#                             ),
+#                             URITemplateAction(
+#                                 label='VR虛擬導覽',
+#                                 uri='http://www.e-happy.com.tw'
+#                             ),
+#                             # PostbackTemplateAction(
+#                             #     label='回傳訊息一',
+#                             #     data='action=sell&item=披薩'
+#                             # ),
+#                         ]
+#                     ),
+#                     CarouselColumn(
+#                         thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/%E5%8F%B0%E5%8C%97%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F.jpg',
+#                         title='歷史廟宇',
+#                         text='歷史廟宇',
+#                         actions=[
+#                             MessageTemplateAction(
+#                                 label='了解更多',
+#                                 text='了解更多'
+#                             ),
+#                             URITemplateAction(
+#                                 label='VR虛擬導覽',
+#                                 uri='http://www.ntu.edu.tw'
+#                             ),
+#                             PostbackTemplateAction(
+#                                 label='回傳訊息二',
+#                                 data='action=sell&item=飲料'
+#                             ),
+#                         ]
+#                     )
+#                     CarouselColumn(
+#                         thumbnail_image_url='https://raw.githubusercontent.com/sabucchen/pic/main/%E5%8F%B0%E5%8C%97%E9%9C%9E%E6%B5%B7%E5%9F%8E%E9%9A%8D%E5%BB%9F.jpg',
+#                         title='特色商行',
+#                         text='特色商行',
+#                         actions=[
+#                             MessageTemplateAction(
+#                                 label='了解更多',
+#                                 text='了解更多'
+#                             ),
+#                             URITemplateAction(
+#                                 label='VR虛擬導覽',
+#                                 uri='http://www.ntu.edu.tw'
+#                             ),
+#                             PostbackTemplateAction(
+#                                 label='回傳訊息二',
+#                                 data='action=sell&item=飲料'
+#                             ),
+#                         ]
+#                     )
+#                 ]
+#             )
+#         )
+#         line_bot_api.reply_message(event.reply_token,message)
+#     except:
+#         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='發生錯誤！'))
 
 
 def sendViewPointPhoto(event):
